@@ -1,0 +1,17 @@
+@use 'sass:color';
+@use 'variables';
+
+@mixin button-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: variables.$font-size-base; // Accédez à la variable via l'espace de noms
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: color.adjust($bg-color, $lightness: -10%);
+  }
+}

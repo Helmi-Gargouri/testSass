@@ -1,0 +1,69 @@
+@use 'sass:color'; 
+@use 'variables';
+@use 'mixins';
+
+body {
+  font-family: variables.$font-stack;
+  font-size: variables.$font-size-base;
+  background-color: variables.$background-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.profile-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+
+  .profile-img {
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+  }
+
+  .profile-info {
+    padding: 20px;
+
+    h2 {
+      color: variables.$primary-color;
+      margin: 0 0 10px;
+    }
+
+    p {
+      color: variables.$text-color;
+      margin: 0 0 20px;
+    }
+
+    .social-links {
+      margin-bottom: 20px;
+
+      a {
+        color: variables.$primary-color;
+        margin: 0 10px;
+        font-size: 1.5em;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: color.adjust(variables.$primary-color, $lightness: -10%);
+        }
+      }
+    }
+
+    .btn-primary {
+      @include mixins.button-style(variables.$primary-color, white);
+    }
+
+    .btn-secondary {
+      @include mixins.button-style(variables.$secondary-color, white);
+      margin-top: 10px;
+    }
+  }
+}
